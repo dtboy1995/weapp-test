@@ -1,0 +1,21 @@
+<view class="game">
+  <movable-area class="layer">
+    <view class="track01">
+      <view class="type">类型1</view>
+    </view>
+    <view class="track02">
+      <view class="type">类型2</view>
+    </view>
+    <view class="track03">
+      <view class="type">类型3</view>
+    </view>
+    
+    <block wx:for="{{cards}}" wx:for-index="index" wx:for-item="card">
+      <movable-view bindtouchend="end" data-index="{{index}}" bindchange="move" style="width: {{width}}; height: {{height}}" class="card" x="{{card.x}}" y="{{card.y}}" direction="all">
+        {{index}}
+      </movable-view>
+    </block>
+    <cover-view bindtap='previous' class='cover-left'>{{'<'}}</cover-view>
+    <cover-view bindtap='next' class='cover-right'>{{'>'}}</cover-view>
+  </movable-area>
+</view>
